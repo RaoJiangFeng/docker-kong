@@ -18,6 +18,9 @@ RUN set -ex; \
         && apt-get purge -y curl; \
     fi; \
     apt-get install -y --no-install-recommends unzip git \
+    # Please update the ubuntu install docs if the below line is changed so that
+    # end users can properly install Kong along with its required dependencies
+    # and that our CI does not diverge from our docs.
 	&& apt install --yes /tmp/kong.deb \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /tmp/kong.deb \
